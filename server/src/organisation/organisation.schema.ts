@@ -13,7 +13,7 @@ const orgSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  certification: [
+  certifications: [
     {
       type: String,
       required: false,
