@@ -1,12 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { ModalProvider } from "@particle-network/connect-react-ui";
+import { WalletEntryPosition } from "@particle-network/auth";
+import { Ethereum, EthereumGoerli } from "@particle-network/chains";
+import { evmWallets } from "@particle-network/connect";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ModalProvider
+      options={{
+        projectId: "d1018e4c-798c-468f-a3e3-cdfd93f9f85c",
+        clientKey: "c1zo4wfEEaguPrwEpwqW1tEIQ2a3dMMr0gFHkIEJ",
+        appId: "4a3c3ddf-d154-41f3-9788-1db35debeea9",
+        chains: [Ethereum, EthereumGoerli],
+        particleWalletEntry: {
+          displayWalletEntry: true, //display wallet button when connect particle success.
+          defaultWalletEntryPosition: WalletEntryPosition.BR,
+          supportChains: [Ethereum, EthereumGoerli],
+          customStyle: {}, //optional: custom wallet style
+        },
+        securityAccount: {
+          //optional: particle security account config
+          //prompt set payment password. 0: None, 1: Once(default), 2: Always
+          promptSettingWhenSign: 1,
+          //prompt set master password. 0: None(default), 1: Once, 2: Always
+          promptMasterPasswordSettingWhenLogin: 1,
+        },
+        wallets: [...evmWallets({ qrcode: false })],
+      }}
+      theme={"auto"}
+      language={"en"}
+      walletSort={["Particle Auth", "Wallet"]}
+      particleAuthSort={["email", "phone", "google", "apple", "facebook"]}
+    >
+      <App />
+    </ModalProvider>
   </React.StrictMode>
 );
-
