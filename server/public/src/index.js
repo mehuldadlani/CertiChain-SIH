@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
+const connectDB_1 = __importDefault(require("./utils/connectDB"));
 dotenv_1.default.config();
+(0, connectDB_1.default)();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 const corsOptions = {
