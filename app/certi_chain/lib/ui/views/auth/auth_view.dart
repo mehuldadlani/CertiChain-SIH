@@ -63,7 +63,8 @@ class AuthView extends StatelessWidget {
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     primary: Colors.transparent,
-                                    shadowColor: Colors.transparent),
+                                    // shadowColor: Colors.transparent
+                                    ),
                                 onPressed: model.handleLogin,
                                 child: Row(
                                   children: [

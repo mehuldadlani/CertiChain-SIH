@@ -12,12 +12,12 @@ class UserDetailViewModel extends BaseViewModel {
     Map<String, String> requestBody = {
       "name": nameController.text,
       "dob": dobController.text,
-      "aadhar": aadharController.text,
+      "aadharNumber": aadharController.text,
       "email": emailController.text,
       "walletAddress": AuthLogic.evmPubAddress ?? '',
     };
 
-    var url = Uri.parse('http://192.168.157.161:8080/createUser');
+    var url = Uri.parse('http://192.168.157.175:8080/api/v1/users');
     var response = await http.post(
       url,
       body: jsonEncode(requestBody),
@@ -26,7 +26,7 @@ class UserDetailViewModel extends BaseViewModel {
       },
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       log(response.body);
       log('Login and POST request successful');
       _navigationService.navigateTo(Routes.homeView);
