@@ -30,7 +30,7 @@ root.render(
       }}
       theme={"auto"}
       language={"en"}
-      walletSort={["Particle Auth", "Wallet"]}
+      walletSort={["Particle Auth"]}
       particleAuthSort={["email", "phone", "google", "apple", "facebook"]}
     >
       <App />
