@@ -15,7 +15,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center mt-32 ">
+    <div className="flex flex-col items-center h-screen pt-24">
       <div className="flex w-[237px] h-11 justify-center items-center gap-1 shrink-0 relative">
         <img src={greenLink} className="w-5 h-5 shrink-0" />
         <img
