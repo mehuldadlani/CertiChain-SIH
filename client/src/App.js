@@ -7,7 +7,7 @@ import LoginChoice from "./components/Auth/LoginChoice";
 import OrgReg from "./components/Forms/OrgReg";
 import UserDashboard from "./components/Dashboard/UserDashboard";
 import OrgDashboard from "./components/Dashboard/OrgDashboard";
-
+import ReqCert from "./components/Certificates/ReqCert";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/org/reg" element={<OrgReg />} />
         <Route path="/user/dashboard" element={<UserDashboard />} />
         <Route path="/org/dashboard" element={<OrgDashboard />} />
-        
+        <Route path="/user/request" element={<ReqCert />} />
       </Routes>
     </div>
   );
