@@ -72,9 +72,7 @@ const UserReg = () => {
                 </div>
               </div>
               <div className="px-20 mt-4">
-                <button  className="bg-green-400 ">
-                  LOGIN
-                </button>
+                <button className="bg-green-400 ">LOGIN</button>
                 <h1>haven't registered yet?Register here</h1>
               </div>
             </div>
