@@ -4,8 +4,7 @@ import Ellipse from "../../assets/Ellipse .png";
 import Profile from "../../assets/Profile.png";
 import axios from "axios";
 import { useAccount } from "@particle-network/connect-react-ui";
-import Search from "../../assets/Search.png";
-import { SBT_CONTRACT_ADDRESS } from "../../utils/ContractDetails";
+import OrgRequestModal from "../Modals/OrgRequestModal";
 
 const OrgDashboard = () => {
   const account = useAccount();
@@ -34,9 +33,7 @@ const OrgDashboard = () => {
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             <a href="/org/certificates">Distribute Certificate</a>
           </button>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            <a href="/org/requests">View Requests</a>
-          </button>
+          <OrgRequestModal />
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             <a href="/org/verify">Verify Certificate</a>
           </button>
