@@ -6,7 +6,8 @@ module.exports = {
         signUpBg: "#f2f2f2",
         inputBg:"#D9D9D9",
         formBg:"#DCDCDC",
-        mainBg:"#F6F6F6"
+        mainBg:"#F6F6F6",
+        loginBg:"#5FC656",
       },
       backgroundImage: {
         signInGradient:
