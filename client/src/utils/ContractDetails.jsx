@@ -1,5 +1,5 @@
 export const SBT_CONTRACT_ADDRESS =
-	"0xbeD6d4019d503a3F588584CCBeA4D4B478FE6FBa";
+	"0x856fe18FD4D946B85f25646783cb95d35eD21F3F";
 
 export const SBT_CONTRACT_ABI = [
 	{
@@ -167,6 +167,11 @@ export const SBT_CONTRACT_ABI = [
 	},
 	{
 		inputs: [
+			{
+				internalType: "address",
+				name: "to",
+				type: "address",
+			},
 			{
 				internalType: "string",
 				name: "uri",
