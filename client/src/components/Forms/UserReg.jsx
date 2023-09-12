@@ -112,7 +112,7 @@ const UserReg = () => {
                   className=" bg-loginBg text-white px-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
                   onClick={handleSubmit}
                 >
-                 SUBMIT DETAILS
+                  SUBMIT DETAILS
                 </button>
               </div>
             </div>
