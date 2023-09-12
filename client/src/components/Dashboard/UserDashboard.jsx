@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Ellipse from "../../assets/Ellipse .png";
+import Profile from "../../assets/Profile.png"
 
 const UserDashboard = () => {
   return (
     <div className="">
       <div className="absolute">
         <img
-          className="  object-cover mix-blend-normal"
+          className=" overflow-hidden object-cover mix-blend-normal"
           src={Ellipse}
           alt=""
         ></img>
@@ -15,7 +16,16 @@ const UserDashboard = () => {
 
       <div className="relative">
         <Navbar />
-        <div></div>
+        <div className="flex flex-col">
+
+          <div className="mt-[57px] ml-10">
+            <img src={Profile}></img>
+            <h1 className="ml-6 mt-6 text-xl font-semibold">Welcome, User</h1>
+          </div>
+
+
+        </div>
+
       </div>
     </div>
   );
