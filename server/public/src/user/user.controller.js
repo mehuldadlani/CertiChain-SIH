@@ -25,7 +25,12 @@ exports.createUserController = createUserController;
 const getUserController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield (0, user_services_1.getUser)(req.params.walletAddress);
-        res.status(200).json(user);
+        if (!user) {
+            return res
+                .status(200)
+                .json({ success: false, message: "User not found" });
+        }
+        res.status(200).json({ success: true, data: user });
     }
     catch (err) {
         console.error(err);

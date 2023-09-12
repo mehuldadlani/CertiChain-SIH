@@ -45,6 +45,10 @@ const userSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    facialUUID: {
+        type: String,
+        required: false,
+    },
     certificates: [
         {
             type: String,

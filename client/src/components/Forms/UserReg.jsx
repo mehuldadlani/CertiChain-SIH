@@ -1,14 +1,37 @@
 import React, { useState } from "react";
 import mainLogo from "../../assets/mainLogo.png";
 import { useAccount } from "@particle-network/connect-react-ui";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import faceIO from "@faceio/fiojs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+const faceio = new faceIO(process.env.REACT_APP_FACEID);
 const UserReg = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [aadhar, setAadhar] = useState("");
+  const [faceID, setFaceID] = useState("");
   const account = useAccount();
+
+  const enrollNewUser = async () => {
+    let promise = faceio.enroll({
+      locale: "auto",
+      payload: {},
+      enrollIntroTimeout: 1,
+    });
+    promise
+      .then((userInfo) => {
+        console.log(userInfo);
+        setFaceID(userInfo.facialId);
+      })
+      .catch((errCode) => {
+        console.log("Something went wrong");
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,17 +42,23 @@ const UserReg = () => {
       dob: dob,
       aadharNumber: aadhar,
       walletAddress: account,
+      facialUUID: faceID,
     });
 
-    console.log(response);
+    toast.success("Details Submitted Successfully!");
 
-    // console.log("Submitted");
+    setTimeout(() => {
+      navigate("/user/dashboard");
+    }, 500);
   };
 
   return (
     <div className="bg-mainBg h-screen">
-      <div className="flex w-[237px] h-11 mx-auto pt-20 justify-center items-center gap-1 shrink-0 relative">
-        <img className="" src={mainLogo} />
+      <ToastContainer />
+      <div className="flex w-[237px] h-11 mx-auto pt-20 pb-6 justify-center items-center gap-1 shrink-0 relative">
+        <a href="/">
+          <img className="" src={mainLogo} />
+        </a>
       </div>
       <div>
         <form className="pt-10">
@@ -107,12 +136,18 @@ const UserReg = () => {
                   />
                 </div>
               </div>
-              <div className=" m-auto mt-14">
+              <div className="m-auto mt-14">
                 <button
-                  className=" bg-loginBg text-white px-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
+                  className=" bg-loginBg text-white px-4 mx-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
                   onClick={handleSubmit}
                 >
-                 SUBMIT DETAILS
+                  SUBMIT DETAILS
+                </button>
+                <button
+                  className=" bg-loginBg text-white px-4 mx-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
+                  onClick={enrollNewUser}
+                >
+                  REGISTER FOR FACEID
                 </button>
               </div>
             </div>

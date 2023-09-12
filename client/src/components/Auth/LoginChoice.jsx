@@ -6,22 +6,36 @@ import { useNavigate } from "react-router-dom";
 import { ConnectButton } from "@particle-network/connect-react-ui";
 import { useAccount } from "@particle-network/connect-react-ui";
 import "@particle-network/connect-react-ui/dist/index.css";
+import axios from "axios";
 
 const LoginChoice = () => {
   const navigate = useNavigate();
-    const account = useAccount();
+  const account = useAccount();
 
+  if (!account) {
+    navigate("/");
+  }
 
-    if (!account) {
-        navigate("/");
+  const handleUser = async () => {
+    const isUserReg = await axios.get(
+      `http://localhost:8080/api/v1/users/${account}`
+    );
+    if (isUserReg?.data.success === true) {
+      navigate("/user/dashboard");
+    } else {
+      navigate("/user/reg");
     }
-
-  const handleUser = () => {
-    navigate("/user/reg");
   };
 
-  const handleOrg = () => {
-    navigate("/org/reg");
+  const handleOrg = async () => {
+    const isOrgReg = await axios.get(
+      `http://localhost:8080/api/v1/organisations/${account}`
+    );
+    if (isOrgReg?.data.success === true) {
+      navigate("/org/dashboard");
+    } else {
+      navigate("/org/reg");
+    }
   };
 
   return (

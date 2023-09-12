@@ -1,0 +1,1 @@
+part of 'user_details_view.dart';

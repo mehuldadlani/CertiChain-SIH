@@ -8,6 +8,10 @@ module.exports = {
         formBg:"#DCDCDC",
         mainBg:"#F6F6F6",
         loginBg:"#5FC656",
+        homeBg:"#638B31",
+        issueBg:"#BDBDBD",
+        walletBg:"#588125",
+        searchBg:"#EBEAEA"
       },
       backgroundImage: {
         signInGradient:

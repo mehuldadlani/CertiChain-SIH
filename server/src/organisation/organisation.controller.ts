@@ -30,7 +30,12 @@ const getAllOrganisationsController = async (req: Request, res: Response) => {
 const getOrganisationController = async (req: Request, res: Response) => {
   try {
     const organisation = await getOrganisation(req.params.walletAddress);
-    res.status(200).json(organisation);
+    if (!organisation) {
+      return res
+        .status(200)
+        .json({ success: false, message: "Organisation not found" });
+    }
+    res.status(200).json({ success: true, data: organisation });
   } catch (err: any) {
     console.error(err);
     res.status(500).json({ message: err.message });
