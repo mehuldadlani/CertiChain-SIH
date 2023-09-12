@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import Ellipse from "../../assets/Ellipse .png";
 import Profile from "../../assets/Profile.png";
@@ -16,19 +16,19 @@ const UserDashboard = () => {
     url: url,
   };
 
-  axios(config)
-    .then((response) => {
-      // filter out the nfts that are not from our contract
-      let data = response.data.ownedNfts.filter((nft) => {
-        return nft.contract.address === SBT_CONTRACT_ADDRESS;
-      });
+  useEffect(() => {
+    axios(config)
+      .then((response) => {
+        let data = response.data.ownedNfts.filter((nft) => {
+          return nft.contract.address === SBT_CONTRACT_ADDRESS;
+        });
 
-      setNfts(data);
-      // console.log(nfts);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+        setNfts(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="">
@@ -47,12 +47,16 @@ const UserDashboard = () => {
             <img src={Profile}></img>
             <h1 className="ml-6 mt-6 text-xl font-semibold">Welcome, User</h1>
           </div>
-
-          
-
-          
         </div>
       </div>
+      <div className="flex flex-row pt-10 justify-between" >  
+        <h1 className="text-xl font-semibold ml-16">Your Certificates</h1>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-16">
+          <a href="/user/request">Request Certificate</a>
+        </button>
+      </div>
+      
+
       {nfts.map((nft) => (
         <div className="flex flex-row justify-center ">
           <div className="flex flex-col  justify-center items-center w-[350px] h-[350px] bg-inputBg/70 rounded-xl mt-8  ">
