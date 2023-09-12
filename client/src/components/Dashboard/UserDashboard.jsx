@@ -32,9 +32,9 @@ const UserDashboard = () => {
 
   return (
     <div className="">
-      <div className="absolute">
+      <div className="absolute z-[-1]">
         <img
-          className=" overflow-hidden object-cover mix-blend-normal"
+          className=" overflow-hidden object-cover mix-blend-normal "
           src={Ellipse}
           alt=""
         ></img>
@@ -48,18 +48,16 @@ const UserDashboard = () => {
             <h1 className="ml-6 mt-6 text-xl font-semibold">Welcome, User</h1>
           </div>
 
-          <div>
-            <div className="w-[213px] h-[33px] bg-searchBg mt-[270px] rounded-xl mr-24">
-              <img className="ml-[181px] py-1" src={Search}></img>
-            </div>
-          </div>
+          
+
+          
         </div>
       </div>
       {nfts.map((nft) => (
-        <div className="flex flex-row justify-center">
-          <div className="flex flex-col justify-center items-center w-[300px] h-[300px] bg-white rounded-xl mt-10">
+        <div className="flex flex-row justify-center ">
+          <div className="flex flex-col  justify-center items-center w-[350px] h-[350px] bg-inputBg/70 rounded-xl mt-8  ">
             <img
-              className="w-[200px] h-[200px] object-cover"
+              className="w-[300px] h-[300px] object-cover pt-4 "
               src={nft.media[0].gateway}
               alt=""
             ></img>
