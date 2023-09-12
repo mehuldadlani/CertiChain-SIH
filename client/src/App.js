@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "@particle-network/connect-react-ui/dist/index.css";
 import UserReg from "./components/Forms/UserReg";
 import LoginChoice from "./components/Auth/LoginChoice";
+import OrgReg from "./components/Forms/OrgReg";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/user/reg" element={<UserReg />} />
-		<Route path="/mode" element={<LoginChoice />} />
+        <Route path="/mode" element={<LoginChoice />} />
+        <Route path="/org/reg" element={<OrgReg />} />
       </Routes>
     </div>
   );

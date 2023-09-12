@@ -32,10 +32,10 @@ const UserReg = () => {
         <img className="" src={mainLogo} />
       </div>
       <div>
-        <form className="pt-24">
-          <div className="h-[550px] w-[767px] m-auto bg-formBg/40 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.20 )]">
+        <form className="pt-10">
+          <div className="h-[550px] w-[767px] m-auto bg-formBg/40 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.20)]">
             <h1 className="text-center text-[22px] pt-[33px]">
-              Add your details
+              ADD YOUR DETAILS
             </h1>
             <div className="flex flex-col mt-6 m-auto">
               <div className="flex flex-col">
@@ -49,7 +49,7 @@ const UserReg = () => {
                   <input
                     type="email"
                     id="email"
-                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] p-4 placeholder:pl-2"
+                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[inset_2.0px_2.0px_4.0px_rgba(0,0,0,0.25)] p-4 placeholder:pl-2"
                     placeholder="Enter Your Email"
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -66,7 +66,7 @@ const UserReg = () => {
                   <input
                     type="Name"
                     id="Name"
-                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] p-4 placeholder:pl-2"
+                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[inset_2.0px_2.0px_4.0px_rgba(0,0,0,0.25)] p-4 placeholder:pl-2"
                     placeholder="Enter Your name"
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -83,7 +83,7 @@ const UserReg = () => {
                   <input
                     type="date"
                     id="DOB"
-                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] px-4 "
+                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[inset_2.0px_2.0px_4.0px_rgba(0,0,0,0.25)] px-4 "
                     placeholder=""
                     onChange={(e) => setDob(e.target.value)}
                     required
@@ -100,7 +100,7 @@ const UserReg = () => {
                   <input
                     type="number"
                     id="aadhar number"
-                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] p-4 placeholder:pl-2"
+                    class="h-[42px] w-[580.83px] bg-inputBg/70 rounded-3xl  shadow-[inset_2.0px_2.0px_4.0px_rgba(0,0,0,0.25)] p-4 placeholder:pl-2"
                     placeholder="Enter Your Aadhar Number"
                     onChange={(e) => setAadhar(e.target.value)}
                     required
@@ -112,7 +112,7 @@ const UserReg = () => {
                   className=" bg-loginBg text-white px-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
                   onClick={handleSubmit}
                 >
-                  Submit Details
+                 SUBMIT DETAILS
                 </button>
               </div>
             </div>
