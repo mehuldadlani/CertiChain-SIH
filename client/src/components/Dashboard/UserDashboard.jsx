@@ -6,6 +6,7 @@ import axios from "axios";
 import { useAccount } from "@particle-network/connect-react-ui";
 import Search from "../../assets/Search.png";
 import { SBT_CONTRACT_ADDRESS } from "../../utils/ContractDetails";
+import RequestModal from "../RequestModal";
 
 const UserDashboard = () => {
   const [nfts, setNfts] = useState([]);
@@ -47,15 +48,17 @@ const UserDashboard = () => {
             <img src={Profile}></img>
             <h1 className="ml-6 mt-6 text-xl font-semibold">Welcome, User</h1>
           </div>
+          <div className="mt-44 mr-[60px]">
+          <RequestModal />
+          </div>
+
+          
         </div>
       </div>
-      <div className="flex flex-row pt-10 justify-between" >  
-        <h1 className="text-xl font-semibold ml-16">Your Certificates</h1>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-16">
-          <a href="/user/request">Request Certificate</a>
-        </button>
-      </div>
-      
+      <div className="flex flex-row pt-10 justify-between">
+            <h1 className="text-xl font-semibold ml-16">Your Certificates</h1>
+            
+          </div>
 
       {nfts.map((nft) => (
         <div className="flex flex-row justify-center ">
