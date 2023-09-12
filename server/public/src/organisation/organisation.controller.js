@@ -36,7 +36,12 @@ exports.getAllOrganisationsController = getAllOrganisationsController;
 const getOrganisationController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const organisation = yield (0, organisation_services_1.getOrganisation)(req.params.walletAddress);
-        res.status(200).json(organisation);
+        if (!organisation) {
+            return res
+                .status(200)
+                .json({ success: false, message: "Organisation not found" });
+        }
+        res.status(200).json({ success: true, data: organisation });
     }
     catch (err) {
         console.error(err);

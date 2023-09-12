@@ -27,8 +27,15 @@ const LoginChoice = () => {
     }
   };
 
-  const handleOrg = () => {
-    navigate("/org/reg");
+  const handleOrg = async () => {
+    const isOrgReg = await axios.get(
+      `http://localhost:8080/api/v1/organisations/${account}`
+    );
+    if (isOrgReg?.data.success === true) {
+      navigate("/org/dashboard");
+    } else {
+      navigate("/org/reg");
+    }
   };
 
   return (

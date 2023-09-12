@@ -19,7 +19,7 @@ const getUserController = async (req: Request, res: Response) => {
         .status(200)
         .json({ success: false, message: "User not found" });
     }
-    res.status(200).json({ success: false, data: user });
+    res.status(200).json({ success: true, data: user });
   } catch (err: any) {
     console.error(err);
     res.status(500).json({ message: err.message });

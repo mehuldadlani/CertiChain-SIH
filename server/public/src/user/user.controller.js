@@ -30,7 +30,7 @@ const getUserController = (req, res) => __awaiter(void 0, void 0, void 0, functi
                 .status(200)
                 .json({ success: false, message: "User not found" });
         }
-        res.status(200).json({ success: false, data: user });
+        res.status(200).json({ success: true, data: user });
     }
     catch (err) {
         console.error(err);
