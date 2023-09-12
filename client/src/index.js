@@ -27,7 +27,9 @@ root.render(
           promptSettingWhenSign: 1,
           promptMasterPasswordSettingWhenLogin: 1,
         },
-        wallets: [...evmWallets({ qrcode: true })],
+        wallets: [...evmWallets({
+          projectId: "ea87e834addd45c2c6184573561a8c8c",
+          qrcode: true })],
       }}
       theme={"auto"}
       language={"en"}
