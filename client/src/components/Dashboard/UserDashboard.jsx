@@ -23,13 +23,6 @@ const UserDashboard = () => {
             <h1 className="ml-6 mt-6 text-xl font-semibold">Welcome, User</h1>
           </div>
 
-          <div>
-            <div className="w-[213px] h-[33px] bg-searchBg">
-
-            </div>
-
-          </div>
-
 
         </div>
 

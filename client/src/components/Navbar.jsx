@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div>
       <div>
-        <div className="flex flex-row justify-between pt-10 h-screen">
+        <div className="flex flex-row justify-between pt-10">
           <div className="ml-10 ">
             <img src={mainLogo}></img>
           </div>
