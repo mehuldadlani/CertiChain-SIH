@@ -5,7 +5,7 @@ const UserReg = () => {
     <div className="bg-mainBg h-screen">
       <div>
         <form className="pt-24">
-          <div className="h-[px] w-[767px] m-auto bg-formBg/40 rounded-3xl  shadow-xs  ">
+          <div className="h-[480px] w-[767px] m-auto bg-formBg/40 rounded-3xl  shadow-xs  ">
             <h1 className="text-center text-3xl pt-[33px]">Login</h1>
             <div className="flex ">
               <div className="flex flex-col">
