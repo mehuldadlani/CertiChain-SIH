@@ -38,6 +38,9 @@ const updateOrganisation = async (
   certificate: string
 ) => {
   try {
+    if (!certificate) {
+      throw new Error();
+    }
     const organisation = await Organisation.findOne({
       walletAddress: walletAddress,
     });
@@ -55,7 +58,7 @@ const deleteOrganisation = async (walletAddress: string) => {
     const organisation = await Organisation.findOne({
       walletAddress: walletAddress,
     });
-    const deletedOrganisation = await organisation?.remove();
+    const deletedOrganisation = await organisation?.deleteOne();
     return deletedOrganisation;
   } catch (err: any) {
     console.error(err);
