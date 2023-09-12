@@ -136,15 +136,15 @@ const UserReg = () => {
                   />
                 </div>
               </div>
-              <div className=" m-auto mt-14">
+              <div className="m-auto mt-14">
                 <button
-                  className=" bg-loginBg text-white px-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
+                  className=" bg-loginBg text-white px-4 mx-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
                   onClick={handleSubmit}
                 >
                   SUBMIT DETAILS
                 </button>
                 <button
-                  className=" bg-loginBg text-white px-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
+                  className=" bg-loginBg text-white px-4 mx-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
                   onClick={enrollNewUser}
                 >
                   REGISTER FOR FACEID

@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { ModalProvider } from "@particle-network/connect-react-ui";
 import { WalletEntryPosition } from "@particle-network/auth";
-import { Ethereum, EthereumGoerli } from "@particle-network/chains";
+import { Ethereum, EthereumGoerli, PolygonMumbai } from "@particle-network/chains";
 import { evmWallets } from "@particle-network/connect";
 import { BrowserRouter } from "react-router-dom";
 
@@ -16,7 +16,7 @@ root.render(
         projectId:"d1018e4c-798c-468f-a3e3-cdfd93f9f85c",
         clientKey:"c1zo4wfEEaguPrwEpwqW1tEIQ2a3dMMr0gFHkIEJ",
         appId:"4a3c3ddf-d154-41f3-9788-1db35debeea9",
-        chains: [Ethereum, EthereumGoerli],
+        chains: [Ethereum, EthereumGoerli, PolygonMumbai],
         particleWalletEntry: {
           displayWalletEntry: true, //display wallet button when connect particle success.
           defaultWalletEntryPosition: WalletEntryPosition.BR,
