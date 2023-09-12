@@ -8,6 +8,7 @@ import OrgReg from "./components/Forms/OrgReg";
 import CertDispurse from "./components/Forms/CertDispurse";
 import UserDashboard from "./components/Dashboard/UserDashboard";
 import OrgDashboard from "./components/Dashboard/OrgDashboard";
+import RequestModal from "./components/RequestModal";
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/org/certdisp" element={<CertDispurse />} />
 				<Route path="/user/dashboard" element={<UserDashboard />} />
 				<Route path="/org/dashboard" element={<OrgDashboard />} />
+        <Route path="/req/modal" element={<RequestModal />} />
 			</Routes>
 		</div>
 	);
