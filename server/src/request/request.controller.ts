@@ -3,6 +3,7 @@ import {
   createRequest,
   getRequest,
   updateRequest,
+  getAllRequests,
   deleteRequest,
 } from "./request.services";
 
@@ -31,9 +32,19 @@ const getRequestController = async (req: Request, res: Response) => {
   }
 };
 
+const getAllRequestsController = async (req: Request, res: Response) => {
+  try {
+    const requests = await getAllRequests();
+    res.status(200).json(requests);
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const updateRequestController = async (req: Request, res: Response) => {
   try {
-    const Request = await updateRequest(req.params.id, req.params.status);
+    const Request = await updateRequest(req.params.id, req.body.status);
     res.status(200).json(Request);
   } catch (err: any) {
     console.error(err);
@@ -54,6 +65,7 @@ const deleteRequestController = async (req: Request, res: Response) => {
 export {
   createRequestController,
   getRequestController,
+  getAllRequestsController,
   updateRequestController,
   deleteRequestController,
 };

@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteRequest = exports.updateRequest = exports.getRequest = exports.createRequest = void 0;
+exports.deleteRequest = exports.updateRequest = exports.getAllRequests = exports.getRequest = exports.createRequest = void 0;
 const request_schema_1 = __importDefault(require("./request.schema"));
 const createRequest = (request) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -37,9 +37,20 @@ const getRequest = (id) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getRequest = getRequest;
+const getAllRequests = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const requests = yield request_schema_1.default.find();
+        return requests;
+    }
+    catch (err) {
+        console.error(err);
+        throw new Error(err);
+    }
+});
+exports.getAllRequests = getAllRequests;
 const updateRequest = (id, status) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const request = yield request_schema_1.default.findByIdAndUpdate(id, { status: status });
+        const request = yield request_schema_1.default.findByIdAndUpdate(id, { status: status }, { new: true });
         const updatedRequest = yield (request === null || request === void 0 ? void 0 : request.save());
         return updatedRequest;
     }

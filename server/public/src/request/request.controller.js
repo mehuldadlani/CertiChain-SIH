@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteRequestController = exports.updateRequestController = exports.getRequestController = exports.createRequestController = void 0;
+exports.deleteRequestController = exports.updateRequestController = exports.getAllRequestsController = exports.getRequestController = exports.createRequestController = void 0;
 const request_services_1 = require("./request.services");
 const createRequestController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -38,9 +38,20 @@ const getRequestController = (req, res) => __awaiter(void 0, void 0, void 0, fun
     }
 });
 exports.getRequestController = getRequestController;
+const getAllRequestsController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const requests = yield (0, request_services_1.getAllRequests)();
+        res.status(200).json(requests);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: err.message });
+    }
+});
+exports.getAllRequestsController = getAllRequestsController;
 const updateRequestController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const Request = yield (0, request_services_1.updateRequest)(req.params.id, req.params.status);
+        const Request = yield (0, request_services_1.updateRequest)(req.params.id, req.body.status);
         res.status(200).json(Request);
     }
     catch (err) {

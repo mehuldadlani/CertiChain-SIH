@@ -21,9 +21,19 @@ const getRequest = async (id: string) => {
   }
 };
 
+const getAllRequests = async () => {
+  try {
+    const requests = await Request.find();
+    return requests;
+  } catch (err: any) {
+    console.error(err);
+    throw new Error(err);
+  }
+};
+
 const updateRequest = async (id: string, status: string) => {
   try {
-    const request = await Request.findByIdAndUpdate(id, { status: status });
+    const request = await Request.findByIdAndUpdate(id, { status: status }, { new: true });
     const updatedRequest = await request?.save();
     return updatedRequest;
   } catch (err: any) {
@@ -43,4 +53,4 @@ const deleteRequest = async (id: string) => {
   }
 };
 
-export { createRequest, getRequest, updateRequest, deleteRequest };
+export { createRequest, getRequest,getAllRequests, updateRequest, deleteRequest };
