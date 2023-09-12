@@ -8,7 +8,7 @@ class UserDetailViewModel extends BaseViewModel {
   TextEditingController emailController = TextEditingController();
 
   Future<void> handleSubmitButton(BuildContext context) async {
-    print('Submit button pressed');
+    log('Submit button pressed');
     Map<String, String> requestBody = {
       "name": nameController.text,
       "dob": dobController.text,
@@ -17,7 +17,7 @@ class UserDetailViewModel extends BaseViewModel {
       "walletAddress": AuthLogic.evmPubAddress ?? '',
     };
 
-    var url = Uri.parse('http://192.168.157.175:8080/api/v1/users');
+    var url = Uri.parse('http://192.168.1.2:8080/api/v1/users');
     var response = await http.post(
       url,
       body: jsonEncode(requestBody),
@@ -29,9 +29,11 @@ class UserDetailViewModel extends BaseViewModel {
     if (response.statusCode == 201) {
       log(response.body);
       log('Login and POST request successful');
-      _navigationService.navigateTo(Routes.homeView);
+      HelperFunction.name = nameController.text;
+      _navigationService.clearStackAndShow(Routes.homeView);
     } else {
-      print('Error in POST request: ${response.statusCode}');
+      log('Error in POST request: ${response.statusCode}');
+      // ignore: use_build_context_synchronously
       showDialog(
         context: context,
         builder: (context) => AlertDialog(

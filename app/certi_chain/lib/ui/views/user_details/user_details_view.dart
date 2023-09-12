@@ -1,7 +1,10 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'dart:convert';
 import 'dart:developer';
 
 import 'package:certi_chain/file_exporter.dart';
+import 'package:certi_chain/utils/helper_function.dart';
 import 'package:http/http.dart' as http;
 
 part 'user_details_view_components.dart';
@@ -179,7 +182,7 @@ class UserDetailView extends StatelessWidget {
                         ),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: context.colorScheme.submitButton,
+                            backgroundColor: context.colorScheme.submitButton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),

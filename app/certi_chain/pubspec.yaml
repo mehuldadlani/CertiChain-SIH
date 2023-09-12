@@ -48,6 +48,7 @@ dependencies:
   http: ^1.1.0
   easy_widgets: ^0.0.7
   oktoast: ^3.3.1
+  feather_icons: ^1.2.0
 
 dev_dependencies:
   flutter_test:

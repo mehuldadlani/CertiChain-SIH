@@ -21,3 +21,4 @@ export 'package:http/http.dart';
 export 'package:particle_auth/particle_auth.dart';
 export 'package:animated_splash_screen/animated_splash_screen.dart';
 export 'package:oktoast/oktoast.dart';
+export 'package:feather_icons/feather_icons.dart';
