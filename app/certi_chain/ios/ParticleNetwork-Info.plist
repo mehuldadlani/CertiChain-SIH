@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   ParticleNetwork-Info.plist
-   Runner
-
-   Created by Mehul Dadlani on 13/09/23.
-   Copyright (c) 2023 . All rights reserved.
--->
 <plist version="1.0">
-<dict/>
+<dict>
+ <key>PROJECT_UUID</key>
+ <string>d1018e4c-798c-468f-a3e3-cdfd93f9f85c</string>
+ <key>PROJECT_CLIENT_KEY</key>
+ <string>c1zo4wfEEaguPrwEpwqW1tEIQ2a3dMMr0gFHkIEJ</string>
+ <key>PROJECT_APP_UUID</key>
+ <string>ff80aff7-b45b-4321-8bfa-c253d6e09b3f</string>
+</dict>
 </plist>
