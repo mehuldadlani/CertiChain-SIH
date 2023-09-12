@@ -1,7 +1,18 @@
 import React from "react";
 import mainLogo from "../assets/mainLogo.png";
+import { ConnectButton } from "@particle-network/connect-react-ui";
+import "@particle-network/connect-react-ui/dist/index.css";
+import { useAccount } from "@particle-network/connect-react-ui";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const account = useAccount();
+  const navigate = useNavigate();
+
+  if (!account) {
+    navigate("/");
+  }
+
   return (
     <div>
       <div>
@@ -18,9 +29,7 @@ const Navbar = () => {
             </div>
 
             <div className="">
-              <button className="bg-walletBg text-white py-1 px-4  rounded-md">
-                Connect Wallet
-              </button>
+              <ConnectButton />
             </div>
           </div>
         </div>
