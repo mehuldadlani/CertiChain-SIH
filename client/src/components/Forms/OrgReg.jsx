@@ -21,7 +21,9 @@ const OrgReg = () => {
   return (
     <div className="bg-mainBg h-screen">
       <div className="flex w-[237px] h-11 mx-auto pt-20 justify-center items-center gap-1 shrink-0 relative">
-        <img className="" src={mainLogo} />
+        <a href="/">
+          <img className="" src={mainLogo} />
+        </a>
       </div>
       <div className="">
         <form className="pt-24 ">
