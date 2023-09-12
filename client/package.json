@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@faceio/fiojs": "^1.1.0",
+    "@heroicons/react": "v1",
     "@particle-network/auth": "^1.1.0",
     "@particle-network/connect": "^1.1.0",
     "@particle-network/connect-react-ui": "^1.1.0",
