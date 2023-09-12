@@ -21,6 +21,10 @@ const userSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+  facialUUID: {
+    type: String,
+    required: true,
+  },
   certificates: [
     {
       type: String,
