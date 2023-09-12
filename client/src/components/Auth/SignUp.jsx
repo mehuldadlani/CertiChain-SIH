@@ -26,11 +26,7 @@ export default function SignUp() {
                 <ConnectButton.Custom>
                   {({
                     account,
-                    chain,
-                    openAccountModal,
                     openConnectModal,
-                    openChainModal,
-                    accountLoading,
                   }) => {
                     return (
                       <div>
