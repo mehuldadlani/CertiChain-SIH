@@ -7,7 +7,7 @@ const UserReg = () => {
         <form className="pt-24">
           <div className="h-[480px] w-[767px] m-auto bg-formBg/40 rounded-3xl  shadow-xs  ">
             <h1 className="text-center text-3xl pt-[33px]">Login</h1>
-            <div className="flex ">
+            <div className="flex flex-col">
               <div className="flex flex-col">
                 <div class=" px-20">
                   <label
@@ -70,6 +70,12 @@ const UserReg = () => {
                     required
                   />
                 </div>
+              </div>
+              <div className="px-20 mt-4">
+                <button  className="bg-green-400 ">
+                  LOGIN
+                </button>
+                <h1>haven't registered yet?Register here</h1>
               </div>
             </div>
           </div>
