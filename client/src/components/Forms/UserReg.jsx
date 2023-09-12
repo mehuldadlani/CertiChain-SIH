@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import mainLogo from "../../assets/mainLogo.png";
 import { useAccount } from "@particle-network/connect-react-ui";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserReg = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
@@ -23,13 +27,18 @@ const UserReg = () => {
 
     console.log(response);
 
+    toast.success("Details Submitted Successfully!");
+
     // console.log("Submitted");
   };
 
   return (
     <div className="bg-mainBg h-screen">
-      <div className="flex w-[237px] h-11 mx-auto pt-20 justify-center items-center gap-1 shrink-0 relative">
-        <img className="" src={mainLogo} />
+      <ToastContainer />
+      <div className="flex w-[237px] h-11 mx-auto pt-20 pb-6 justify-center items-center gap-1 shrink-0 relative">
+        <a href="/">
+          <img className="" src={mainLogo} />
+        </a>
       </div>
       <div>
         <form className="pt-10">
@@ -112,7 +121,7 @@ const UserReg = () => {
                   className=" bg-loginBg text-white px-4 rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.25)] py-2 hover:border-2 hover:border-[#CF4242]"
                   onClick={handleSubmit}
                 >
-                 SUBMIT DETAILS
+                  SUBMIT DETAILS
                 </button>
               </div>
             </div>

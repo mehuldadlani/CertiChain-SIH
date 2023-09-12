@@ -14,7 +14,12 @@ const createUserController = async (req: Request, res: Response) => {
 const getUserController = async (req: Request, res: Response) => {
   try {
     const user = await getUser(req.params.walletAddress);
-    res.status(200).json(user);
+    if (!user) {
+      return res
+        .status(200)
+        .json({ success: false, message: "User not found" });
+    }
+    res.status(200).json({ success: false, data: user });
   } catch (err: any) {
     console.error(err);
     res.status(500).json({ message: err.message });
