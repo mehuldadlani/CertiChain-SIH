@@ -25,11 +25,11 @@ const UserReg = () => {
       walletAddress: account,
     });
 
-    console.log(response);
-
     toast.success("Details Submitted Successfully!");
 
-    // console.log("Submitted");
+    setTimeout(() => {
+      navigate("/user/dashboard");
+    }, 500);
   };
 
   return (

@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import mainLogo from "../../assets/mainLogo.png";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAccount } from "@particle-network/connect-react-ui";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OrgReg = () => {
   const account = useAccount();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email, name, account);
     const response = axios.post(`http://localhost:8080/api/v1/organisations`, {
-      email: email,
-      name: name,
+      orgEmail: email,
+      orgName: name,
       walletAddress: account,
     });
-    console.log(response);
+
+    toast.success("Details Submitted Successfully!");
+
+    navigate("/org/dashboard");
   };
 
   return (
     <div className="bg-mainBg h-screen">
+      <ToastContainer />
       <div className="flex w-[237px] h-11 mx-auto pt-20 justify-center items-center gap-1 shrink-0 relative">
         <a href="/">
           <img className="" src={mainLogo} />
