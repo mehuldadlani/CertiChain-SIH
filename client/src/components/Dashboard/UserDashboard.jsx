@@ -28,7 +28,7 @@ const UserDashboard = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [nfts]);
 
   return (
     <div className="">
@@ -48,16 +48,13 @@ const UserDashboard = () => {
             <h1 className="ml-6 mt-6 text-xl font-semibold">Welcome, User</h1>
           </div>
           <div className="mt-44 mr-[60px]">
-          <RequestModal />
+            <RequestModal account={account}/>
           </div>
-
-          
         </div>
       </div>
       <div className="flex flex-row pt-10 justify-between">
-            <h1 className="text-xl font-semibold ml-16">Your Certificates</h1>
-            
-          </div>
+        <h1 className="text-xl font-semibold ml-16">Your Certificates</h1>
+      </div>
 
       {nfts.map((nft) => (
         <div className="flex flex-row justify-center ">

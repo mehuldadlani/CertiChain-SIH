@@ -5,6 +5,10 @@ const requestSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+  walletAddress: {
+    type: String,
+    required: true,
+  },
   userName: {
     type: String,
     required: true,

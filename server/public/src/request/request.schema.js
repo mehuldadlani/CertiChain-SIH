@@ -29,6 +29,10 @@ const requestSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    walletAddress: {
+        type: String,
+        required: true,
+    },
     userName: {
         type: String,
         required: true,
