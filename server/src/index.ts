@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./utils/connectDB";
 import userRoutes from "./user/user.routes";
+import orgRoutes from "./organisation/organisation.routes";
 dotenv.config();
 
 connectDB();
@@ -18,6 +19,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/organisations", orgRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   const healthcheck: any = {

@@ -3,12 +3,11 @@ import SignUp from "./components/SignUp";
 import "@particle-network/connect-react-ui/dist/index.css";
 
 function App() {
-	return (
-		<div>
-			<ConnectButton />
-			<SignUp />
-		</div>
-	);
+  return (
+    <div>
+      <SignUp />
+    </div>
+  );
 }
 
 export default App;
