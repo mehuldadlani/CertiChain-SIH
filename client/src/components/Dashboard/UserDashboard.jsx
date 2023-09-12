@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Ellipse from "../../assets/Ellipse .png";
-import Profile from "../../assets/Profile.png"
+import Profile from "../../assets/Profile.png";
+import  Search  from "../../assets/Search.png";
 
 const UserDashboard = () => {
   return (
@@ -16,7 +17,7 @@ const UserDashboard = () => {
 
       <div className="relative">
         <Navbar />
-        <div className="flex flex-col">
+        <div className="flex flex-row justify-between">
 
           <div className="mt-[57px] ml-10">
             <img src={Profile}></img>
@@ -24,7 +25,8 @@ const UserDashboard = () => {
           </div>
 
           <div> 
-            <div className="w-[213px] h-[33px] bg-searchBg">
+            <div className="w-[213px] h-[33px] bg-searchBg mt-[270px] rounded-xl mr-24">
+              <img className="ml-[181px] py-1" src={Search}></img>
 
             </div>
 
