@@ -6,10 +6,11 @@ import { ModalProvider } from "@particle-network/connect-react-ui";
 import { WalletEntryPosition } from "@particle-network/auth";
 import { Ethereum, EthereumGoerli } from "@particle-network/chains";
 import { evmWallets } from "@particle-network/connect";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <ModalProvider
       options={{
         projectId:"d1018e4c-798c-468f-a3e3-cdfd93f9f85c",
@@ -35,5 +36,6 @@ root.render(
     >
       <App />
     </ModalProvider>
-  </React.StrictMode>
+   </BrowserRouter>
+   
 );

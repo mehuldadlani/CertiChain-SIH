@@ -23,6 +23,9 @@ const getUser = async (walletAddress: string) => {
 
 const updateUser = async (walletAddress: string, certificate: string) => {
   try {
+    if (!certificate) {
+      throw new Error();
+    }
     const user = await User.findOne({ walletAddress: walletAddress });
     user?.certificates.push(certificate);
     const updatedUser = await user?.save();
@@ -36,7 +39,7 @@ const updateUser = async (walletAddress: string, certificate: string) => {
 const deleteUser = async (walletAddress: string) => {
   try {
     const user = await User.findOne({ walletAddress: walletAddress });
-    const deletedUser = await user?.remove();
+    const deletedUser = await user?.deleteOne();
     return deletedUser;
   } catch (err: any) {
     console.error(err);
