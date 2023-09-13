@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { useAccount } from "@particle-network/connect-react-ui";
 import axios from "axios";
 
@@ -26,6 +27,7 @@ const OrgRequestModal = () => {
 
   return (
     <div>
+      <ToastContainer />
       {!showRequestModal ? (
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -76,6 +78,11 @@ const OrgRequestModal = () => {
                                   <button
                                     type="button"
                                     class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto mt-5"
+                                    onClick={() => {
+                                      toast.success(
+                                        "Certificate Approved Successfully"
+                                      );
+                                    }}
                                   >
                                     Approve
                                   </button>

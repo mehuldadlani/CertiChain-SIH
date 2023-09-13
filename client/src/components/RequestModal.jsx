@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 const RequestModal = (props) => {
@@ -24,12 +25,15 @@ const RequestModal = (props) => {
       aadharNumber,
       walletAddress: account,
     });
-    console.log(data);
+
+    toast.success("Hold on tight for approval!");
+
     setShowModal(false);
   };
 
   return (
     <div>
+      <ToastContainer />
       <button
         className="px-2 py-2 bg-inputBg/70 text-black ml-10 mt-20 rounded-md"
         onClick={() => setShowModal(true)}
