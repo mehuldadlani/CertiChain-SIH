@@ -1670,6 +1670,11 @@
   resolved "https://registry.yarnpkg.com/@faceio/fiojs/-/fiojs-1.1.0.tgz#7536157b86efb059fccb8ba4c2781b713c35df71"
   integrity sha512-JCn1mDi7MYwpyj2OvmPofNJPcawVF4vuCeH2GTD49NcSITHkSSM2/MrSwqj3vvy1OX3LHJ3hvHUbKDPSg4iweQ==
 
+"@heroicons/react@v1":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
+  integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
+
 "@humanwhocodes/config-array@^0.11.11":
   version "0.11.11"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.11.tgz#88a04c570dbbc7dd943e4712429c3df09bc32844"

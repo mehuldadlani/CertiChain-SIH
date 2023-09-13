@@ -7,6 +7,30 @@ class UserDetailViewModel extends BaseViewModel {
   TextEditingController aadharController = TextEditingController();
   TextEditingController emailController = TextEditingController();
 
+  Future<void> checkUserStatus() async {
+    var url = Uri.parse(
+        'http://192.168.1.10:8080/api/v1/users/${AuthLogic.evmPubAddress}');
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      var jsonResponse = json.decode(response.body);
+
+      if (jsonResponse["success"] == true) {
+        // Extracting the name and setting it to HelperFunction
+        HelperFunction.name = jsonResponse["data"]["name"];
+        HelperFunction.aadharNumber = jsonResponse["data"]["aadharNumber"];
+
+        // Navigate directly to home page if success is true
+        _navigationService.clearStackAndShow(Routes.bottomNavView,
+            arguments: const BottomNavViewArguments(initialIndex: 0));
+      } else {
+        log('User not found');
+      }
+    } else {
+      log('Error in GET request: ${response.statusCode}');
+    }
+  }
+
   Future<void> handleSubmitButton(BuildContext context) async {
     log('Submit button pressed');
     Map<String, String> requestBody = {
@@ -17,7 +41,7 @@ class UserDetailViewModel extends BaseViewModel {
       "walletAddress": AuthLogic.evmPubAddress ?? '',
     };
 
-    var url = Uri.parse('http://192.168.1.2:8080/api/v1/users');
+    var url = Uri.parse('http://192.168.1.10:8080/api/v1/users');
     var response = await http.post(
       url,
       body: jsonEncode(requestBody),

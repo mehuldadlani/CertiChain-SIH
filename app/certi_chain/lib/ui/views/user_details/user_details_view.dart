@@ -17,6 +17,7 @@ class UserDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserDetailViewModel>.nonReactive(
       viewModelBuilder: () => UserDetailViewModel(),
+      onViewModelReady: (model) => model.checkUserStatus(),
       builder: (context, model, child) {
         return Scaffold(
             body: SingleChildScrollView(

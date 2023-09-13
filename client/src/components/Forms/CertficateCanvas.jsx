@@ -71,13 +71,7 @@ export default function CertificateCanvas({
 			ctx.font = "400 " + getH(15) + "px Pinyon";
 			ctx.textAlign = "center";
 			ctx.fillStyle = "#22272E";
-			ctx.fillText(
-				ticketDetails.name.length >= 18
-					? ticketDetails.name.slice(0, 18) + "..."
-					: ticketDetails.name,
-				getW(100.25),
-				getH(230)
-			);
+			ctx.fillText(ticketDetails.name, getW(100.25), getH(230));
 
 			const date = new Date();
 
@@ -95,13 +89,7 @@ export default function CertificateCanvas({
 			ctx.font = "400 " + getH(12) + "px Pinyon";
 			ctx.textAlign = "center";
 			ctx.fillStyle = "#22272E";
-			ctx.fillText(
-				ticketDetails.organisationName.length >= 18
-					? ticketDetails.organisationName.slice(0, 18) + "..."
-					: ticketDetails.organisationName,
-				getW(123.25),
-				getH(255)
-			);
+			ctx.fillText(ticketDetails.organisationName, getW(123.25), getH(255));
 
 			let randomNumber = Math.floor(Math.random() * 10000000000000 + 1);
 
