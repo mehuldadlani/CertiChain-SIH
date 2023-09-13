@@ -49,22 +49,23 @@ export default function CertificateCanvas({
 			fix_dpi();
 			ctx.drawImage(img, 0, 0, getW(200.5), getH(360));
 
-			var poster = new Image();
-			poster.src = ticketDetails.logo;
-			poster.setAttribute("crossorigin", "anonymous");
+			var logo = new Image();
+			logo.src = ticketDetails.logo;
+			logo.setAttribute("crossorigin", "anonymous");
 			// poster.crossOrigin = "anonymous";
 
-			poster.onload = function () {
-				ctx.drawImage(poster, getW(90), getH(40), getW(20), getH(20));
+			logo.onload = function () {
+				ctx.drawImage(logo, getW(90), getH(40), getW(20), getH(20));
 			};
 
 			var sign = new Image();
 			sign.src = ticketDetails.signature;
+			console.log(sign.src);
 			sign.setAttribute("crossorigin", "anonymous");
 			// poster.crossOrigin = "anonymous";
 
 			sign.onload = function () {
-				ctx.drawImage(poster, getW(107), getH(291), getW(35), getH(18));
+				ctx.drawImage(logo, getW(107), getH(291), getW(35), getH(18));
 			};
 
 			ctx.font = "400 " + getH(15) + "px Pinyon";
@@ -78,16 +79,18 @@ export default function CertificateCanvas({
 				getH(230)
 			);
 
+			const date = new Date();
+
+			let day = date.getDate();
+			let month = date.getMonth() + 1;
+			let year = date.getFullYear();
+
+			let currentDate = `${day}/${month}/${year}`;
+
 			ctx.font = "400 " + getH(12) + "px Pinyon";
 			ctx.textAlign = "center";
 			ctx.fillStyle = "#22272E";
-			ctx.fillText(
-				ticketDetails.name.length >= 18
-					? ticketDetails.name.slice(0, 18) + "..."
-					: ticketDetails.name,
-				getW(75.25),
-				getH(310)
-			);
+			ctx.fillText(currentDate, getW(75.25), getH(310));
 
 			ctx.font = "400 " + getH(12) + "px Pinyon";
 			ctx.textAlign = "center";
@@ -106,7 +109,6 @@ export default function CertificateCanvas({
 			ctx.textAlign = "center";
 			ctx.fillStyle = "#22272E";
 			ctx.fillText(randomNumber, getW(103), getH(275));
-			console.log(canvas.current.toDataURL());
 			setTicketUrl(canvas.current.toDataURL());
 		};
 	}, [ticketDetails]);

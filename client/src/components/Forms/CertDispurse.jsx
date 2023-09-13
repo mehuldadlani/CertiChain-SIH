@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Web3Storage } from "web3.storage";
 import mainLogo from "../../assets/mainLogo.png";
 import CertificateCanvas from "./CertficateCanvas";
-import ticketImg from "../../assets/certificateTemplate.svg";
 
 import {
 	SBT_CONTRACT_ADDRESS,
@@ -74,7 +73,6 @@ export default function CertDispurse() {
 				}
 
 				const ImageCID = await storeFiles(ticketUrl);
-				console.log(ImageCID);
 
 				async function makeFileObjects1(questions) {
 					const files = [new File([questions], "nftInfo.json")];
@@ -115,147 +113,33 @@ export default function CertDispurse() {
 	};
 
 	const generateCertificate = async () => {
-		// This is assuming that rendering CertificateCanvas somewhere sets the ticketUrl
-		// If this is not the case, adjust the logic accordingly
-		// function makeStorageClient() {
-		// 	return new Web3Storage({ token: process.env.REACT_APP_ACCESS_TOKEN });
-		// }
+		function getAccessToken() {
+			return process.env.REACT_APP_ACCESS_TOKEN;
+		}
 
-		// async function makeFileObjects(data) {
-		// 	const blob = new Blob([JSON.stringify(data)], {
-		// 		type: "application/json",
-		// 	});
+		function makeStorageClient() {
+			return new Web3Storage({ token: getAccessToken() });
+		}
 
-		// 	const files = [new File([blob], "nftInfo.json")];
-		// 	console.log(files);
-		// 	return files;
-		// }
+		const storeImage = async (files) => {
+			console.log("Uploading image to IPFS with web3.storage....");
+			const client = makeStorageClient();
+			const cid = await client.put([files], { wrapWithDirectory: false });
+			console.log("Stored Image with cid:", cid);
+			return cid;
+		};
 
-		// async function storeFiles(data) {
-		//     console.log("Uploading data to IPFS with web3.storage....");
+		const logoCID = await storeImage(logo);
 
-		//     const files = await makeFileObjects(data);
-		//     const client = makeStorageClient();
-		//     const cid = await client.put(files, { wrapWithDirectory: false });
-
-		//     console.log(files, client, cid)
-
-		//     return cid;
-		// }
-
-		// const storeImage = async (files) => {
-		// 	console.log("Uploading image to IPFS with web3.storage....");
-		// 	const client = makeStorageClient();
-		// 	const cid = await client.put([files], { wrapWithDirectory: false });
-		// 	console.log("Stored Image with cid:", cid);
-		// 	return cid;
-		// };
+		const signatureCID = await storeImage(signature);
 
 		setCertificateDetails({
 			name: name,
-			logo: logo,
-			signature: signature,
+			logo: `https://ipfs.io/ipfs/${logoCID}`,
+			signature: `https://ipfs.io/ipfs/${signatureCID}`,
 			organisationName: organisationName,
 		});
 	};
-
-	// const MintNFT = async () => {
-	// 	try {
-	// 		console.log("Begin");
-	// 		const { ethereum } = window;
-
-	// 		if (ethereum) {
-	// 			console.log("Going to pop wallet to connect");
-
-	// 			<CertificateCanvas
-	// 				ticketDetails={{
-	// 					name: name,
-	// 					logo: logo,
-	// 					signature: signature,
-	// 					organisationName: organisationName,
-	// 				}}
-	// 				setTicketUrl={setTicketUrl}
-	// 				height="350px"
-	// 			/>;
-
-	// 			const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-	// 			const signer = provider.getSigner();
-	// 			const connectedContract = new ethers.Contract(
-	// 				SBT_CONTRACT_ADDRESS,
-	// 				SBT_CONTRACT_ABI,
-	// 				signer
-	// 			);
-	// 			const accounts = await ethereum.request({
-	// 				method: "eth_requestAccounts",
-	// 			});
-	// 			console.log("Connected", accounts[0]);
-
-	// 			console.log(name);
-
-	// 			function getAccessToken() {
-	// 				return process.env.REACT_APP_ACCESS_TOKEN;
-	// 			}
-
-	// 			function makeStorageClient() {
-	// 				return new Web3Storage({ token: getAccessToken() });
-	// 			}
-
-	// 			async function makeFileObjects(questions) {
-	// 				const files = [new File([questions], "nftInfo.json")];
-	// 				console.log(files);
-	// 				return files;
-	// 			}
-
-	// 			async function storeFiles(questions) {
-	// 				console.log("Uploading Metadata to IPFS with web3.storage....");
-
-	// 				const files = await makeFileObjects(questions);
-	// 				const client = makeStorageClient();
-	// 				const cid = await client.put(files, { wrapWithDirectory: false });
-
-	// 				return cid;
-	// 			}
-
-	// 			const storeImage = async (files) => {
-	// 				console.log("Uploading image to IPFS with web3.storage....");
-
-	// 				const client = makeStorageClient();
-
-	// 				const cid = await client.put([files], { wrapWithDirectory: false });
-	// 				console.log(cid);
-
-	// 				return cid;
-	// 			};
-	// 			console.log(ticketUrl);
-
-	// 			// const ImageCID = await storeImage(ticketUrl);
-	// 			// console.log(`${ImageCID}`);
-
-	// 			const metadata = JSON.stringify({
-	// 				name: `Certificate of ${name}`,
-	// 				description: "Soulbound certificate for the attendees",
-	// 				image: `ipfs://${ImageCID}`,
-	// 			});
-
-	// 			console.log(metadata);
-	// 			const QuestionCID = await storeFiles(metadata);
-	// 			console.log(`${QuestionCID}`);
-
-	// 			let minting = await connectedContract.safeMint(
-	// 				`${address}`,
-	// 				`ipfs://${QuestionCID}`
-	// 			);
-	// 			console.log("Minting: Process started");
-	// 			await minting.wait();
-	// 			console.log("Minting: Process finished");
-	// 		} else {
-	// 			console.log("Ethereum object doesn't exist!");
-	// 		}
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
 
 	return (
 		<div className="bg-mainBg h-screen">
