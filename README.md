@@ -43,7 +43,7 @@ The "soul-bound" NFT certificates are securely stored in the recipient's digital
 
 
 # 🤝 Contributors
-<a href="https://github.com/karanpargal/DAOcom/graphs/contributors">
+<a href="https://github.com/mehuldadlani/CertiChain-SIH/contributors">
   <img src="https://contrib.rocks/image?repo=mehuldadlani/CertiChain-SIH" />
 </a>
 
